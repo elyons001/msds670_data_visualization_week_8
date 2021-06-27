@@ -10,7 +10,7 @@ Date: 27JUN2021
 Author: Earle Lyons
 Purpose: Create visuals for Week 8 Assignment Project
     - Line plot and small multiple plots
-    - Multiple plots
+    - Small multiple plots
     - Seaborn heatmap
     - GeoPandas choropleth map
     - Line plots
@@ -23,10 +23,10 @@ Notes:
 Data Sources:
     https://data.bls.gov/timeseries/LNU04000000?years_option=all_years&periods_option=specific_periods&periods=Annual+Data
     https://www.census.gov/data/tables/time-series/demo/income-poverty/historical-poverty-people.html
-    https://www.census.gov/library/publications/2020/demo/p60-270.html
     https://www.census.gov/data/datasets/2010/demo/saipe/2010-state-and-county.html
     https://www.census.gov/data/datasets/2019/demo/saipe/2019-state-and-county.html
     https://www.census.gov/geographies/mapping-files/time-series/geo/cartographic-boundary.html
+    https://www.census.gov/library/publications/2020/demo/p60-270.html
 
 Data Files: 
     https://data.bls.gov/timeseries/LNU04000000?years_option=all_years&periods_option=specific_periods&periods=Annual+Data
@@ -39,6 +39,7 @@ Data Files:
     https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_county_5m.zip
 
 References:
+    https://stackoverflow.com/questions/48470251/move-tick-marks-at-the-top-of-the-seaborn-plot?noredirect=1&lq=1
     https://towardsdatascience.com/how-to-split-shapefiles-e8a8ac494189
 """
 
@@ -831,10 +832,10 @@ ax2.plot(median_inc_df.index, median_inc_df['Median income'],
          color='#606C38', linewidth=3)
 ax2.scatter(2015, 56516, color='#6C757D')
 # Add axvline
-ax.axvline(2015, ymin=0.1, ymax=0.87, color='#6C757D', ls='dotted')
+ax.axvline(2015, ymin=0.1, ymax=0.78, color='#6C757D', ls='dotted')
 ax.axvline(2015, ymin=0.95, ymax=1.0, color='#6C757D', ls='dotted')
 # Set titles
-ax1.set_title('Poverty rate, median income, and unemployment ra', loc='left', 
+ax1.set_title('Poverty rate, median income, and unemployment rate', loc='left', 
               weight='semibold')
 # Create ax text
 #2010	15.1
@@ -866,7 +867,8 @@ ax1.set_ylim(0, 16)
 ax2.set_ylim(0, 70000)
 # Set x ticks
 ax.set_xticks([2010 , 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019])
-ax.set_xticklabels(['2010', '2011', '2012', '2013', '2014', '2015', '2016', '2017', '2018', '2019'])
+ax.set_xticklabels(['2010', '2011', '2012', '2013', '2014', '2015', '2016', 
+                    '2017', '2018', '2019'])
 ax1.set_yticks([])
 ax1.set_yticklabels([])
 ax2.set_yticks([])
