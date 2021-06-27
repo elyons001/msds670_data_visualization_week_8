@@ -357,7 +357,7 @@ ax2 = fig.add_subplot(gs[-1, 0])
 ax3 = fig.add_subplot(gs[-1, 1])
 ax4 = fig.add_subplot(gs[-1, 2])
 # Create suptitle
-fig.suptitle('U.S. Poverty rate overall and by family/individuals', 
+fig.suptitle('U.S. poverty rate overall and by family/individuals', 
              x=0.34, y=1.1, 
              fontsize=16)
 # Plot line and scatter
@@ -480,7 +480,8 @@ ax10 = fig.add_subplot(gs[2, 1])
 ax11 = fig.add_subplot(gs[2, 2])
 ax12 = fig.add_subplot(gs[2, 3])
 # Create suptitle
-fig.suptitle('U.S. poverty by sex, age, and race', x=0.24, y=1.1, fontsize=16)
+fig.suptitle('U.S. poverty rate by sex, age, and race', 
+             x=0.24, y=1.1, fontsize=16)
 # Plot small multiples
 ax1.plot(pr_sa_df.index, male_pr_sa_df['Male_Total_Below_%'], 
          color='#415A77', linewidth=3)
@@ -837,7 +838,8 @@ ax2.scatter(2015, 56516, color='#D62828')
 ax.axvline(2015, ymin=0.1, ymax=0.78, color='#343A40', ls='dotted')
 ax.axvline(2015, ymin=0.95, ymax=1.0, color='#343A40', ls='dotted')
 # Set titles
-ax1.set_title('Poverty rate, median income, and unemployment rate', loc='left', 
+ax1.set_title('U.S. poverty rate, median income, and unemployment rate', 
+              loc='left', 
               weight='semibold')
 # Create ax text
 #2010	15.1
