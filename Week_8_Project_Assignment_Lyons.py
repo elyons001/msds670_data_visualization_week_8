@@ -360,8 +360,10 @@ ax4 = fig.add_subplot(gs[-1, 2])
 fig.suptitle('U.S. Poverty rate overall and by family/individuals', 
              x=0.34, y=1.1, 
              fontsize=16)
-# Plot small multiples
+# Plot line and scatter
 ax1.plot(pr_oa_df.index, pr_oa_df['Poverty %'], color='black', linewidth=3)
+ax1.scatter(2015, 13.5, color='#D62828')
+# Plot small multiple
 ax2.plot(pr_fam_df.index, pr_fam_df['All families %'], color='#7B9E89', 
          linewidth=3)
 ax3.plot(pr_fam_df.index, pr_fam_df['Families with female householder %'], 
@@ -830,7 +832,7 @@ ax1.plot(unemp_rt_df.index, unemp_rt_df['Unemployment rate'],
 ax2 = ax.twinx()
 ax2.plot(median_inc_df.index, median_inc_df['Median income'], 
          color='#606C38', linewidth=3)
-ax2.scatter(2015, 56516, color='#6C757D')
+ax2.scatter(2015, 56516, color='#D62828')
 # Add axvline
 ax.axvline(2015, ymin=0.1, ymax=0.78, color='#6C757D', ls='dotted')
 ax.axvline(2015, ymin=0.95, ymax=1.0, color='#6C757D', ls='dotted')
@@ -842,7 +844,7 @@ ax1.set_title('Poverty rate, median income, and unemployment rate', loc='left',
 #2019	10.5
 ax.text(2009.75, 15.1, '15.1%', color='black', fontsize='large', ha='right')
 ax.text(2019.25, 10.5, '10.5%, Poverty rate', color='black', fontsize='large')
-ax.text(2015, 14.2, '13.5%, Poverty rate', color='#D62828', fontsize='medium', 
+ax.text(2015, 14.2, '13.5%, Poverty rate', color='#6C757D', fontsize='medium', 
          ha='left')
 ax.text(2015.1, 11.0, 'Median househould income', color='#6C757D', 
          fontsize='medium', ha='left')
@@ -854,13 +856,16 @@ ax1.text(2009.75, 9.6, '9.6%', color='#A26C02',
          fontsize='large', ha='right')
 ax1.text(2019.25, 3.7, '3.7%, Unemployment rate', color='#A26C02', 
          fontsize='large')
-
 #2010	49276
 #2019	68703
 ax2.text(2009.75, 49276, '$49,276', color='#606C38', 
          fontsize='large', ha='right')
 ax2.text(2019.25, 68703, '$68,703, Median income', color='#606C38', 
          fontsize='large')
+# Set x and y parameters
+ax.tick_params(colors='#7A777E')
+ax1.tick_params(colors='#7A777E')
+ax2.tick_params(colors='#7A777E')
 # Set y limits
 ax.set_ylim(0, 16)
 ax1.set_ylim(0, 16)
@@ -869,10 +874,6 @@ ax2.set_ylim(0, 70000)
 ax.set_xticks([2010 , 2011, 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019])
 ax.set_xticklabels(['2010', '2011', '2012', '2013', '2014', '2015', '2016', 
                     '2017', '2018', '2019'])
-ax1.set_yticks([])
-ax1.set_yticklabels([])
-ax2.set_yticks([])
-ax2.set_yticklabels([])
 # Set y ticks
 ax.set_yticks([])
 ax.set_yticklabels([])
