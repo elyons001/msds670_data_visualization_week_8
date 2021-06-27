@@ -371,8 +371,8 @@ ax3.plot(pr_fam_df.index, pr_fam_df['Families with female householder %'],
 ax4.plot(pr_fam_df.index, pr_fam_df['Unrelated individuals %'], 
          color='#7B9E89', linewidth=3)
 # Add axvline
-ax1.axvline(2015, ymin=0.1, ymax=0.44, color='#6C757D', ls='dotted')
-ax1.axvline(2015, ymin=0.58, ymax=1.0, color='#6C757D', ls='dotted')
+ax1.axvline(2015, ymin=0.1, ymax=0.44, color='#343A40', ls='dotted')
+ax1.axvline(2015, ymin=0.58, ymax=1.0, color='#343A40', ls='dotted')
 # Set titles
 ax1.set_title('Overall', loc='left', weight='semibold')
 ax2.set_title('Families and individuals', loc='left', y=1.2, 
@@ -390,9 +390,9 @@ ax1.text(2014, 16.8, '14.8%', color='#343A40', fontsize='medium',
          ha='center',)
 ax1.text(2015, 9.5, '13.5%', color='#D62828', fontsize='medium', 
          ha='center')
-ax1.text(2015.1, 4.0, 'Median househould income', color='#6C757D', 
+ax1.text(2015.1, 4.0, 'Median househould income', color='#343A40', 
          fontsize='medium', ha='left')
-ax1.text(2015.1, 2.0, 'increased 5.2%', color='#6C757D', 
+ax1.text(2015.1, 2.0, 'increased 5.2%', color='#343A40', 
          fontsize='medium', ha='left')
 ax1.text(2019, 6.5, '10.5%', fontsize='medium', ha='right')
 ax1.text(2019.25, 1.5, '34.0M', color='#7A777E', 
@@ -834,8 +834,8 @@ ax2.plot(median_inc_df.index, median_inc_df['Median income'],
          color='#606C38', linewidth=3)
 ax2.scatter(2015, 56516, color='#D62828')
 # Add axvline
-ax.axvline(2015, ymin=0.1, ymax=0.78, color='#6C757D', ls='dotted')
-ax.axvline(2015, ymin=0.95, ymax=1.0, color='#6C757D', ls='dotted')
+ax.axvline(2015, ymin=0.1, ymax=0.78, color='#343A40', ls='dotted')
+ax.axvline(2015, ymin=0.95, ymax=1.0, color='#343A40', ls='dotted')
 # Set titles
 ax1.set_title('Poverty rate, median income, and unemployment rate', loc='left', 
               weight='semibold')
@@ -844,11 +844,11 @@ ax1.set_title('Poverty rate, median income, and unemployment rate', loc='left',
 #2019	10.5
 ax.text(2009.75, 15.1, '15.1%', color='black', fontsize='large', ha='right')
 ax.text(2019.25, 10.5, '10.5%, Poverty rate', color='black', fontsize='large')
-ax.text(2015, 14.2, '13.5%, Poverty rate', color='#6C757D', fontsize='medium', 
+ax.text(2015, 14.2, '13.5%, Poverty rate', color='#343A40', fontsize='medium', 
          ha='left')
-ax.text(2015.1, 11.0, 'Median househould income', color='#6C757D', 
+ax.text(2015.1, 11.0, 'Median househould income', color='#343A40', 
          fontsize='medium', ha='left')
-ax.text(2015.1, 10.0, 'increased 5.2%', color='#6C757D', 
+ax.text(2015.1, 10.0, 'increased 5.2%', color='#343A40', 
          fontsize='medium', ha='left')
 #2010	9.6
 #2019	3.7
