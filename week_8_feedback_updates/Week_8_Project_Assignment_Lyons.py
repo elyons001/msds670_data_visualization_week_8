@@ -39,8 +39,9 @@ Data Files:
     https://www2.census.gov/geo/tiger/GENZ2020/shp/cb_2020_us_county_5m.zip
 
 References:
-    https://stackoverflow.com/questions/48470251/move-tick-marks-at-the-top-of-the-seaborn-plot?noredirect=1&lq=1
     https://towardsdatascience.com/how-to-split-shapefiles-e8a8ac494189
+    https://stackoverflow.com/questions/48470251/move-tick-marks-at-the-top-of-the-seaborn-plot?noredirect=1&lq=1
+    https://gis.stackexchange.com/questions/343881/using-vmin-and-vmax-does-not-change-anything-for-my-plots
 """
 
 #%% Import libraries
@@ -754,26 +755,44 @@ ax3 = fig.add_axes([0.24, 0.52, 0.12, 0.1])
 ax4 = fig.add_axes([0.1, 0.1, 0.9, 0.4])
 ax5 = fig.add_axes([0.12, 0.12, 0.12, 0.1])
 ax6 = fig.add_axes([0.24, 0.12, 0.12, 0.1])
+cax = fig.add_axes([0.95, 0.52, 0.02, 0.1])
+# Set vmin and vmax
+vmin, vmax = 0, 51
+# Plot the GeoPandas DataFrames
 pr_cnty_geo_df_cont.plot(column='2010 Poverty %', 
                          cmap='Reds', ax=ax1,
-                         legend=False,
-                         edgecolor='black', linewidth=1.0)
+                         vmin=vmin, vmax=vmax, 
+                         legend=False, 
+                         edgecolor='white', linewidth=1.0)
 pr_cnty_geo_df_ak.plot(column='2010 Poverty %', 
                        cmap='Reds', ax=ax2,
-                       edgecolor='black', linewidth=1.0)
+                       vmin=vmin, vmax=vmax,             
+                       edgecolor='white', linewidth=1.0)
 pr_cnty_geo_df_hi.plot(column='2010 Poverty %', 
                        cmap='Reds', ax=ax3,
-                       edgecolor='black', linewidth=1.0)
+                       vmin=vmin, vmax=vmax, 
+                       edgecolor='white', linewidth=1.0)
 pr_cnty_geo_df_cont.plot(column='2019 Poverty %', 
                          cmap='Reds', ax=ax4,
-                         legend=True, 
-                         edgecolor='black', linewidth=1.0)
+                         vmin=vmin, vmax=vmax, 
+                         legend=False, 
+                         edgecolor='white', linewidth=1.0)
 pr_cnty_geo_df_ak.plot(column='2019 Poverty %', 
-                       cmap='Reds', ax=ax5,
-                       edgecolor='black', linewidth=1.0)
+                       cmap='Reds', ax=ax5, 
+                       vmin=vmin, vmax=vmax, 
+                       edgecolor='white', linewidth=1.0)
 pr_cnty_geo_df_hi.plot(column='2019 Poverty %', 
-                       cmap='Reds', ax=ax6,
-                       edgecolor='black', linewidth=1.0)
+                       cmap='Reds', ax=ax6, 
+                       vmin=vmin, vmax=vmax, 
+                       edgecolor='white', linewidth=1.0)
+# Create colorbar
+# Reference:
+# https://gis.stackexchange.com/questions/343881/using-vmin-and-vmax-does-not-change-anything-for-my-plots
+sm = plt.cm.ScalarMappable(norm=plt.Normalize(vmin=vmin, vmax=vmax), 
+                           cmap='Reds')
+sm.set_array([])
+fig.colorbar(sm, cax=cax)
+cax.tick_params(labelsize='x-large')
 # Remove unnecessary space for AK
 # Reference:
 # https://towardsdatascience.com/how-to-split-shapefiles-e8a8ac494189
